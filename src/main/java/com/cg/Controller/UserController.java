@@ -3,6 +3,7 @@ package com.cg.Controller;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -13,6 +14,9 @@ import com.cg.Dao.UserDaoI;
 import com.cg.Entity.User;
 import com.cg.Service.UserServiceI;
 
+
+
+@CrossOrigin(origins = "http://localhost:4200")
 @RestController
 public class UserController {
 	
@@ -24,7 +28,7 @@ public class UserController {
 		return userService.retrive();
 	}
 	
-	@GetMapping(value="/user/(userId)")
+	@GetMapping(value="/user/{userId}")
 	public User fetchUserById( @PathVariable long userId) {
 		return userService.findById(userId);
 	}
@@ -34,5 +38,11 @@ public class UserController {
 		userService.addUser(user);
 		return "sucess";
 	}
-
+	
+	@GetMapping("/User/validate/{userId}/{password}")
+	public int validateLogin(@PathVariable long userId,@PathVariable String password)
+	{
+		return userService.validateLogin(userId, password);
+	}
+	
 }

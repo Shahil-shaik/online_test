@@ -11,4 +11,13 @@ public interface UserDaoI {
 	public User addUser(User u);
 	public List retrive();
 	public User findById(long userId);
+	
+	
+	public int validateLogin(long userId,String password);
+	
+	//public User loginDetails(String name);
+	
+	
+	
+	
 }

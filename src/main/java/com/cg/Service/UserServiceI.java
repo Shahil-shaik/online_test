@@ -11,4 +11,11 @@ public interface UserServiceI {
 	public User addUser(User u);
 	public User findById(long userId);
 	public List retrive();
+//	public String loginService(long userId,String password);
+	public int validateLogin(long userId,String password);
+	
+//	public User loginDetails(String name);
+	
+	
+	public String registerService(long userId,String password,String userName);
 }

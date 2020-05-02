@@ -21,12 +21,39 @@ public class UserServiceImpl implements UserServiceI {
 
 	@Override
 	public User findById(long userId) {
-		return userDao.findById(userId);
+		User obj =userDao.findById(userId);
+		if(obj==null)
+			throw new RuntimeException("userId not found");
+		return obj;
 	}
 
 	@Override
 	public List retrive() {
 		return userDao.retrive();
+	}
+
+//	@Override
+//	public String loginService(long userId, String password) {
+//		User obj=userDao.findById(userId);
+//		if(obj==null)
+//			throw new RuntimeException("userId not found");
+//		if(password.matches(obj.getUserPassword()))
+//			return "welcome "+obj.getUserName();
+//		else 
+//			throw new RuntimeException("password incorrect");
+//	}
+	public int validateLogin(long userId,String password)
+	{
+		return userDao.validateLogin(userId, password);
+	}
+
+
+
+	@Override
+	public String registerService(long userId, String password, String userName) {
+		User obj = new User(userId,userName,password,false,null);
+		userDao.addUser(obj);
+		return "sucess";
 	}
 
 }
