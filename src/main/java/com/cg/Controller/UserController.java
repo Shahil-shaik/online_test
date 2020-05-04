@@ -33,7 +33,7 @@ public class UserController {
 		return userService.findById(userId);
 	}
 	
-	@PostMapping(value="/user/new",consumes= {"application/json"})
+	@PostMapping(value="/SignUp",consumes= {"application/json"})
 	public String addUser(@RequestBody User user) {
 		userService.addUser(user);
 		return "sucess";
