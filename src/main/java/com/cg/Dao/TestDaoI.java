@@ -1,5 +1,7 @@
 package com.cg.Dao;
 
+import java.util.List;
+
 import org.springframework.stereotype.Repository;
 
 import com.cg.Entity.Test;
@@ -8,4 +10,6 @@ import com.cg.Entity.Test;
 public interface TestDaoI {
 	public Test addTest(Test t);
 	public Test findById(long testId);
+	public List retrive();
+	public String assignTest(long userId,long testId);
 }

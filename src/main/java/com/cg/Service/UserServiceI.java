@@ -3,6 +3,7 @@ package com.cg.Service;
 import java.util.List;
 
 import org.springframework.stereotype.Service;
+import org.springframework.web.bind.annotation.PathVariable;
 
 import com.cg.Entity.User;
 
@@ -18,4 +19,5 @@ public interface UserServiceI {
 	
 	
 	public String registerService(long userId,String password,String userName);
+	public String assignTest(long userId,long testId);
 }

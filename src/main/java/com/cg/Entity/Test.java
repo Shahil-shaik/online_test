@@ -19,16 +19,11 @@ public class Test {
 	@Column
 	private String testTitle;
 	@Column
-	private LocalTime testDuration;
+	private String testDuration;
 	@Column
 	private long testTotalMarks;
 	@Column
 	private long testMarksScored;
-	
-	@Column
-	private LocalTime startTime;
-	@Column
-	private LocalTime endTime;
 	
 	@OneToOne
 	private User user;
@@ -36,18 +31,19 @@ public class Test {
 	List<Question> ques;
 	
 	
-	public Test(long testId, String testTitle, LocalTime testDuration, long testTotalMarks, long testMarksScored,
-			LocalTime startTime, LocalTime endTime, User user, List<Question> ques) {
+	public Test(long testId, String testTitle, String testDuration, long testTotalMarks, long testMarksScored,
+			 User user, List<Question> ques) {
 		super();
 		this.testId = testId;
 		this.testTitle = testTitle;
 		this.testDuration = testDuration;
 		this.testTotalMarks = testTotalMarks;
 		this.testMarksScored = testMarksScored;
-		this.startTime = startTime;
-		this.endTime = endTime;
 		this.user = user;
 		this.ques = ques;
+	}
+	public Test() {
+		// TODO Auto-generated constructor stub
 	}
 	public long getTestId() {
 		return testId;
@@ -61,10 +57,10 @@ public class Test {
 	public void setTestTitle(String testTitle) {
 		this.testTitle = testTitle;
 	}
-	public LocalTime getTestDuration() {
+	public String getTestDuration() {
 		return testDuration;
 	}
-	public void setTestDuration(LocalTime testDuration) {
+	public void setTestDuration(String testDuration) {
 		this.testDuration = testDuration;
 	}
 	public long getTestTotalMarks() {
@@ -78,18 +74,6 @@ public class Test {
 	}
 	public void setTestMarksScored(long testMarksScored) {
 		this.testMarksScored = testMarksScored;
-	}
-	public LocalTime getStartTime() {
-		return startTime;
-	}
-	public void setStartTime(LocalTime startTime) {
-		this.startTime = startTime;
-	}
-	public LocalTime getEndTime() {
-		return endTime;
-	}
-	public void setEndTime(LocalTime endTime) {
-		this.endTime = endTime;
 	}
 	public User getUser() {
 		return user;

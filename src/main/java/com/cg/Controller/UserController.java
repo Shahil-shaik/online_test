@@ -44,5 +44,8 @@ public class UserController {
 	{
 		return userService.validateLogin(userId, password);
 	}
-	
+	@GetMapping("/test/assignTest/{userId}/{testId}")
+	public String assignTest(@PathVariable long userId,@PathVariable long testId) {
+		return userService.assignTest(userId,testId);
+	}
 }
